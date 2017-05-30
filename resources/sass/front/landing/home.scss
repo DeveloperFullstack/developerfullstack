@@ -64,7 +64,7 @@
   }
 }
 
-#programa {
+#necesidades {
   color: white;
   .section-header {
     .container {
@@ -138,6 +138,15 @@
   }
 }
 
+#programa {
+  background-color: $brand-inverse;
+  .section-header {
+    h2, h5 {
+      color: white;
+    }
+  }
+}
+
 $logos-height-control: 840px;
 @keyframes logos {
   0% {
@@ -153,6 +162,54 @@ $logos-height-control: 840px;
     img {
       height: auto;
       width: 100%;
+    }
+  }
+}
+
+.schedule-cards-list {
+  .schedule-card {
+    > div {
+      @include box-shadow-default;
+    }
+    .top {
+      border-top-right-radius: $border-radius;
+      border-top-left-radius: $border-radius;
+      background-color: white;
+      position: relative;
+      min-height: 180px;
+      overflow: hidden;
+      .details {
+        padding: get-spacer(3, y);
+        position: relative;
+        color: white;
+        z-index: 11;
+        span {
+          display: block;
+        }
+        .month {
+          font-size: $font-size-h3;
+        }
+      }
+      &:before {
+        background: linear-gradient(147deg, $blue, $purple);
+        transform: skewY(-12deg);
+        position: absolute;
+        height: 100%;
+        content: "";
+        width: 100%;
+        top: -49px;
+      }
+    }
+    .content {
+      @include list-unstyled;
+      border-bottom-right-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      padding: get-spacer(3, y);
+      background-color: white;
+      min-height: 200px;
+      li {
+        margin-bottom: get-spacer(3, y);
+      }
     }
   }
 }
@@ -197,116 +254,22 @@ $logos-height-control: 840px;
       line-height: 3.3rem;
     }
     nav {
-      margin-top: get-spacer(3, y);
+      margin-top: get-spacer(5, y);
     }
   }
-}
-
-.StripeBackground {
-  transform: skewY(-12deg);
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  left: 0;
-}
-
-.stripes-header .s0 {
-  background: linear-gradient(90deg, #6fa8ef, #5a65db);
-  height: 5000px;
-  bottom: 203px;
-}
-
-.StripeBackground .stripe {
-    position: absolute;
-    top: auto;
-    left: 0;
-    right: 0;
-}
-
- .stripes-header {
-    bottom: -187px;
-}
-
-@media (min-width: 420px) {
-    .stripes-header {
-        bottom:-87px;
+  .img-wrapper {
+    perspective: 1200px;
+    perspective-origin: 80% 80%;
+    .img {
+      @include bg-img-block;
+      transform: scale(1.3) rotateX(1deg) rotateY(-15deg) rotate(-1deg) translateX(63px) translateY(34px);
+      box-shadow: 0 55px 70px -20px rgba(50,50,93,.55), 0 20px 30px -10px rgba(0,0,0,.14);
+      background-image: url(/img/code.jpg);
+      border-radius: $border-radius;
+      height: 280px;
+      width: 100%;
     }
-}
-
-@media (min-width: 670px) {
-    .stripes-header {
-        bottom:-117px;
-    }
-}
-
-.stripes-header .stripe {
-    height: 204px;
-}
-
-.stripes-header .s0 {
-    height: 5000px;
-    bottom: 203px;
-    background: linear-gradient(90deg,#6fa8ef,#5a65db);
-}
-
-.stripes-header .s1 {
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(90deg,#fff 50%,#f1f4f7);
-}
-
-@media (min-width: 420px) {
-    .stripes-header .s1 {
-        right:calc(50% - 150px);
-    }
-}
-
-@media (min-width: 670px) {
-    .stripes-header .s1 {
-        right:calc(50% - 30px);
-    }
-}
-
-.stripes-header .s2 {
-    bottom: 0;
-    left: 100%;
-    background: linear-gradient(90deg,#f6a4eb,#555abf);
-}
-
-@media (min-width: 420px) {
-    .stripes-header .s2 {
-        left:calc(50% + 150px);
-    }
-}
-
-@media (min-width: 670px) {
-    .stripes-header .s2 {
-        left:calc(50% + 30px);
-    }
-}
-
-.stripes-header .s3 {
-    bottom: 204px;
-    left: 75%;
-    background: linear-gradient(90deg,#6788ea,#68bcf7);
-}
-
-.stripes-header .s4 {
-    bottom: 408px;
-    left: calc(50% + 410px);
-    background: linear-gradient(90deg,rgba(86,88,199,.35),#5658c7);
-}
-
-.stripes-header .s5 {
-    bottom: 612px;
-    right: 30%;
-    background: linear-gradient(90deg,#6a8dea,rgba(106,141,234,0));
-}
-
-.stripes-header .s6 {
-    bottom: 816px;
-    background: #6772e5;
+  }
 }
 
 
@@ -324,7 +287,7 @@ $xxl-desktop: 1980px;
     .computer-bg-wrapper {
       display: none;
     }
-    #programa {
+    #necesidades {
       .stripes {
         top: 0;
       }

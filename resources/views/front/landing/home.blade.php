@@ -17,12 +17,13 @@
           <div class="col-sm-7">
             <h5>Emprendedores que programan</h5>
             <h1>Bienvenido a DeveloperFullstack, un programa presencial donde <strong>te enseñamos a utilizar las tecnologías que las startups necesitan</strong></h1>
-          </div>
-          <div class="col-sm-5">
             <nav>
-              <a href="#" class="btn btn-inverse">Aplicar</a>
-              <a href="#" class="btn btn-secondary">Conoce el programa</a>
+              <a href="#" class="btn btn-inverse btn-lg">Aplicar</a>
+              <a href="#" class="btn btn-secondary btn-lg">Conoce el programa</a>
             </nav>
+          </div>
+          <div class="col-sm-5 hidden-md-down">
+            <div class="img-wrapper"><div class="img"></div></div>
           </div>
         </div>
       </div>
@@ -100,7 +101,7 @@
     <footer class="section-footer"></footer>
   </section>
 
-  <section class="section" id="programa">
+  <section class="section" id="necesidades">
     <div class="stripes">
       <div class="stripe s1"></div>
       <div class="stripe s2"></div>
@@ -159,6 +160,43 @@
       </div>
     </div>
     <footer class="section-footer"></footer>
+  </section>
+
+  <section class="section" id="programa">
+    <header class="section-header">
+      <div class="container text-center">
+        <h2>Distribución del programa</h2>
+        <h5>Las clases son presenciales y se imparten los días Lunes y Miércoles de 16:00 a 19:00 horas<br>En ocasiones será requerido que estudies y completes proyectos de manera extra-curricular <sup>*</sup></h5>
+      </div>
+    </header>
+    <div class="section-content">
+      <div class="container-xxl">
+        <div class="grid-list grid-list-4 grid-list-3-md grid-list-2-sm grid-list-1-xs schedule-cards-list">
+          @foreach ($schedule as $card)
+            <article class="grid-list-item schedule-card">
+              <div>
+                <div class="top">
+                  <div class="details">
+                    <span class="month">{{ $card['month'] }}</span>
+                    <span class="days">{{ $card['days'] }}</span>
+                  </div>
+                </div>
+                <ul class="content">
+                  @foreach ($card['topics'] as $topic)
+                    <li>{{ $topic }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            </article>
+          @endforeach
+        </div>
+      </div>
+    </div>
+    <footer class="section-footer">
+      <div class="container">
+        <p><sup>*</sup> El material didáctico y recursos extra-curriculares están incluídos en la inscripción</p>
+      </div>
+    </footer>
   </section>
 
   <section class="section" id="quien">
