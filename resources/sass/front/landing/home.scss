@@ -70,7 +70,7 @@
     .container {
       @include flex-row;
     }
-    h2,
+    .text-wrapper,
     .__icon-wrapper {
       @include flex-column-center;
       height: 70px;
@@ -86,7 +86,7 @@
         color: white;
       }
     }
-    h2 {
+    h2, h5 {
       color: white;
     }
   }
@@ -153,28 +153,6 @@ $logos-height-control: 840px;
     img {
       height: auto;
       width: 100%;
-    }
-  }
-  .logos {
-    height: $logos-height-control;
-    position: absolute;
-    overflow: hidden;
-    width: 100%;
-    .grid-list {
-      backface-visibility: hidden;
-      will-change: transform;
-
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-fill-mode: forwards;
-      animation-duration: 120s;
-      animation-name: logos;
-    }
-    li {
-      margin-bottom: get-spacer(5, y);
-      &:nth-child(odd) {
-        transform: translateY(-50px);
-      }
     }
   }
 }
@@ -361,7 +339,32 @@ $xxl-desktop: 1980px;
   }
 }
 @media #{$lg-down} {}
-@media #{$sm-up} {}
+@media #{$sm-up} {
+  body {
+    #tecnologias {
+      .logos {
+        height: $logos-height-control;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        .logo-grid {
+          background-image: url(/img/logo-group.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          backface-visibility: hidden;
+          will-change: transform;
+          height: 2095px;
+
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+          animation-duration: 120s;
+          animation-name: logos;
+        }
+      }
+    }
+  }
+}
 @media #{$md-up} {
   body {
     .computer-bg-wrapper {

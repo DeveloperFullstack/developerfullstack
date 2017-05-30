@@ -108,7 +108,10 @@
     <header class="section-header">
       <div class="container">
         <div class="__icon-wrapper"><i class="icon-chart-growth"></i></div>
-        <h2>¿Qué necesitan las startups?</h2>
+        <div class="text-wrapper">
+          <h2>¿Qué necesitan las startups?</h2>
+          <h5>DeveloperFullstack te prepara para enfrentarte a cualquier tecnología, la imaginación es el límite</h5>
+        </div>
       </div>
     </header>
     <div class="section-content">
@@ -119,6 +122,11 @@
           <li><span>Comunicación técnica efectiva</span> entre el equipo de desarrollo, las necesidades del negocio y del usuario</li>
           <li><span>Centralización</span> de los procesos de la organización</li>
           <li><span>Optimización de los recursos económicos de la compañía</span>. Inversión concreta sobre los verdaderas necesidades</li>
+          <li>
+            <nav>
+              <a href="#" class="btn btn-secondary btn-block btn-lg">Aplicar al programa</a>
+            </nav>
+          </li>
         </ul>
       </div>
     </div>
@@ -126,47 +134,13 @@
   </section>
 
   <section class="section" id="tecnologias">
+    <header class="section-header hidden-sm-up"></header>
     <div class="section-content">
       <div class="logos">
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
-              <ul class="grid-list grid-list-2 hidden-md-down">
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-              </ul>
-              <ul class="grid-list grid-list-2 hidden-md-down">
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-              </ul>
-              <ul class="grid-list grid-list-2 hidden-md-down">
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-                <li>LOGO</li>
-              </ul>
+              <div class="logo-grid"></div>
             </div>
           </div>
         </div>
@@ -175,7 +149,7 @@
         <div class="row">
           <div class="col-sm-6 push-sm-6">
             <h2>¿Qué tecnologías utilizarás?</h2>
-            <h3>Las que pide el mercado</h3>
+            <h3>Las que pide el mercado (y cumplan los objetivos)</h3>
             <p>De acuerdo con el <a href="https://insights.stackoverflow.com/survey/2017" target="_blank" rel="noopener">StackExchange Developer Survey 2017</a>, éstas son las tecnologías que tienen más y mejores ofertas de empleo y oportunidades</p>
             <div class="img-wrapper">
               <img src="/img/correlated-technologies.jpg" alt="correlated technologies">

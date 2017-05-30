@@ -7769,7 +7769,7 @@ html::-webkit-scrollbar {
   display: flex;
 }
 
-#programa .section-header h2,
+#programa .section-header .text-wrapper,
 #programa .section-header .__icon-wrapper {
   -ms-flex-pack: center;
   justify-content: center;
@@ -7793,7 +7793,7 @@ html::-webkit-scrollbar {
   color: white;
 }
 
-#programa .section-header h2 {
+#programa .section-header h2, #programa .section-header h5 {
   color: white;
 }
 
@@ -7864,32 +7864,6 @@ html::-webkit-scrollbar {
 #tecnologias .img-wrapper img {
   height: auto;
   width: 100%;
-}
-
-#tecnologias .logos {
-  height: 840px;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-}
-
-#tecnologias .logos .grid-list {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: transform;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-duration: 120s;
-  animation-name: logos;
-}
-
-#tecnologias .logos li {
-  margin-bottom: 3rem;
-}
-
-#tecnologias .logos li:nth-child(odd) {
-  transform: translateY(-50px);
 }
 
 .skills-list h4 {
@@ -8068,6 +8042,29 @@ html::-webkit-scrollbar {
 @media only screen and (max-width: 992px) {
   body .computer-bg-wrapper {
     height: 380px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body #tecnologias .logos {
+    height: 840px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+  }
+  body #tecnologias .logos .logo-grid {
+    background-image: url(/img/logo-group.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+    height: 2095px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-duration: 120s;
+    animation-name: logos;
   }
 }
 
