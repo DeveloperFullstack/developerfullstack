@@ -13,6 +13,12 @@
   }
 }
 
+.cta-nav {
+  a {
+    margin-right: get-spacer(5, x);
+  }
+}
+
 #resumen {
   .section-content {
     min-height: auto;
@@ -34,6 +40,9 @@
 }
 
 #descripcion-del-programa {
+  .section-header {
+    text-align: right;
+  }
   .computer-bg {
     background-image: url(/img/computer-bg.jpg);
     background-repeat: no-repeat;
@@ -61,6 +70,68 @@
     height: 100%;
     content: "";
     width: 100%;
+  }
+  .section-content {
+    .container {
+      @include flex-column-end;
+      min-height: 662px;
+    }
+  }
+  .logo-wrapper {
+    @include position(absolute, 0 0 0 0);
+    @include bg-img-block;
+    background-image: url(/img/logo_devfs.png);
+    background-position: center;
+    background-size: 90%;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+  }
+  .bio-wrapper {
+    position: relative;
+    > div {
+      @include flex-row-space-between;
+      @include box-shadow-default;
+      border-radius: $border-radius-lg;
+      background-color: white;
+    }
+    .left,
+    .right {
+      position: relative;
+      min-height: 350px;
+      width: 50%;
+    }
+    .left {
+      .img-wrapper {
+        border-top-left-radius: $border-radius-lg;
+        border-bottom-left-radius: $border-radius-lg;
+        @include position(absolute, 0 0 0 0);
+        @include bg-img-block;
+        background-image: url(/img/profile-gus.jpg);
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .right {
+      .content {
+        @include position(absolute, 0 0 0 0);
+        padding: get-spacer(5, x);
+        z-index: 10;
+        h3 {
+          color: $brand-inverse;
+        }
+      }
+      &:after {
+        @include position(absolute, 0 null 0 0);
+        background-color: white;
+        transform: skew(-12deg);
+        transform-origin: 0 0;
+        display: block;
+        content: "";
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -284,12 +355,54 @@ $xxl-desktop: 1980px;
 @media #{$lg-only} {}
 @media #{$sm-down} {
   body {
+    #descripcion-del-programa {
+      .section-header {
+        text-align: left;
+      }
+    }
+    .hero-unit {
+      .section-content {
+        .container {
+          min-height: 70vh;
+        }
+      }
+    }
+    .cta-nav {
+      a {
+        margin-bottom: get-spacer(3, y);
+      }
+    }
     .computer-bg-wrapper {
       display: none;
     }
     #necesidades {
       .stripes {
         top: 0;
+      }
+    }
+    #quien {
+      .logo-wrapper {
+        top: -370px;
+        bottom: auto;
+      }
+      .bio-wrapper {
+        > div {
+          @include flex-column;
+        }
+        .left,
+        .right {
+          min-height: 210px;
+          width: 100%;
+        }
+        .right {
+          .content {
+            padding: get-spacer(3, y);
+            position: initial;
+          }
+          &:after {
+            display: none;
+          }
+        }
       }
     }
   }

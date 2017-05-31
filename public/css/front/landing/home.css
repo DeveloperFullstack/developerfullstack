@@ -2888,7 +2888,7 @@ html {
 }
 
 .header-padding {
-  padding: 4.375rem 0;
+  padding: 7rem 0;
 }
 
 .header .container {
@@ -2913,7 +2913,7 @@ html {
   flex-direction: column;
   display: -ms-flexbox;
   display: flex;
-  height: 70px;
+  height: 112px;
 }
 
 .header .header-center {
@@ -2949,8 +2949,8 @@ html {
 }
 
 .section-header {
-  padding: 4.375rem 0;
-  padding-top: 6.25rem;
+  padding: 7rem 0;
+  padding-top: 8.875rem;
   color: #464a4c;
 }
 
@@ -2959,14 +2959,14 @@ html {
 }
 
 .section-footer {
-  padding: 2.1875rem 0;
+  padding: 3.5rem 0;
   text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
   body .section-header,
   body .section-footer {
-    padding: 2.1875rem 0;
+    padding: 3.5rem 0;
   }
   body .section-content {
     min-height: 40vh;
@@ -7923,6 +7923,10 @@ html::-webkit-scrollbar {
   color: white;
 }
 
+.cta-nav a {
+  margin-right: 3rem;
+}
+
 #resumen .section-content {
   min-height: auto;
 }
@@ -7954,6 +7958,10 @@ html::-webkit-scrollbar {
   z-index: 10;
 }
 
+#descripcion-del-programa .section-header {
+  text-align: right;
+}
+
 #descripcion-del-programa .computer-bg {
   background-image: url(/img/computer-bg.jpg);
   background-repeat: no-repeat;
@@ -7978,6 +7986,98 @@ html::-webkit-scrollbar {
   position: absolute;
   height: 100%;
   content: "";
+  width: 100%;
+}
+
+#quien .section-content .container {
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 662px;
+}
+
+#quien .logo-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(/img/logo_devfs.png);
+  background-position: center;
+  background-size: 90%;
+  opacity: 0.3;
+  height: 100%;
+  width: 100%;
+}
+
+#quien .bio-wrapper {
+  position: relative;
+}
+
+#quien .bio-wrapper > div {
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: -ms-flexbox;
+  display: flex;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 0.3rem;
+  background-color: white;
+}
+
+#quien .bio-wrapper .left,
+#quien .bio-wrapper .right {
+  position: relative;
+  min-height: 350px;
+  width: 50%;
+}
+
+#quien .bio-wrapper .left .img-wrapper {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(/img/profile-gus.jpg);
+  height: 100%;
+  width: 100%;
+}
+
+#quien .bio-wrapper .right .content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  z-index: 10;
+}
+
+#quien .bio-wrapper .right .content h3 {
+  color: #32325d;
+}
+
+#quien .bio-wrapper .right:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: skew(-12deg);
+  transform-origin: 0 0;
+  display: block;
+  content: "";
+  height: 100%;
   width: 100%;
 }
 
@@ -8225,11 +8325,42 @@ html::-webkit-scrollbar {
   Media queries
 */
 @media only screen and (max-width: 768px) {
+  body #descripcion-del-programa .section-header {
+    text-align: left;
+  }
+  body .hero-unit .section-content .container {
+    min-height: 70vh;
+  }
+  body .cta-nav a {
+    margin-bottom: 1rem;
+  }
   body .computer-bg-wrapper {
     display: none;
   }
   body #necesidades .stripes {
     top: 0;
+  }
+  body #quien .logo-wrapper {
+    top: -370px;
+    bottom: auto;
+  }
+  body #quien .bio-wrapper > div {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body #quien .bio-wrapper .left,
+  body #quien .bio-wrapper .right {
+    min-height: 210px;
+    width: 100%;
+  }
+  body #quien .bio-wrapper .right .content {
+    padding: 1rem;
+    position: initial;
+  }
+  body #quien .bio-wrapper .right:after {
+    display: none;
   }
 }
 

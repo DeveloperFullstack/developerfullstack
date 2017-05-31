@@ -14,7 +14,7 @@
     <header class="header">
       <div class="container">
         <div class="header-left">
-          <a href="#" class="logo">DevFS</a>
+          <a href="#" class="logo"><img src="/img/logo_devfs-light.png" alt="DevFS"></a>
         </div>
         <div class="header-center"></div>
         <div class="header-right">

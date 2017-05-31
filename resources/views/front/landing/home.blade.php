@@ -17,7 +17,7 @@
           <div class="col-sm-7">
             <h5>Emprendedores que programan</h5>
             <h1>Bienvenido a DeveloperFullstack, un programa presencial donde <strong>te enseñamos a utilizar las tecnologías que las startups necesitan</strong></h1>
-            <nav>
+            <nav class="cta-nav">
               <a href="#" class="btn btn-inverse btn-lg">Aplicar</a>
               <a href="#" class="btn btn-secondary btn-lg">Conoce el programa</a>
             </nav>
@@ -69,7 +69,7 @@
 
   <section class="section" id="descripcion-del-programa">
     <header class="section-header">
-      <div class="container text-right">
+      <div class="container">
         <h2>Descripción del programa</h2>
         <h3>DevFS es la entrada al entorno de desarrollo global</h3>
         <p>Este programa convoca a jóvenes de entre 15 y 27 años interesados en tecnologías de desarrollo web y móvil y que tengan tiempo para asistir a los cursos los lunes y miércoles de 16:00 a 19:00 horas del 4 de Septiembre 2017 al 4 de Diciembre 2017</p>
@@ -91,7 +91,7 @@
               <li><i class="icon-bug"></i>Reducir la deuda técnica de tus proyectos</li>
               <li><i class="icon-new-tab"></i>Crear tus propios prototipos, buscando tus propias soluciones</li>
             </ul>
-            <nav>
+            <nav class="cta-nav">
               <a href="#" class="btn btn-inverse btn-lg">Aplicar</a>
             </nav>
           </div>
@@ -124,7 +124,7 @@
           <li><span>Centralización</span> de los procesos de la organización</li>
           <li><span>Optimización de los recursos económicos de la compañía</span>. Inversión concreta sobre los verdaderas necesidades</li>
           <li>
-            <nav>
+            <nav class="cta-nav">
               <a href="#" class="btn btn-secondary btn-block btn-lg">Aplicar al programa</a>
             </nav>
           </li>
@@ -189,11 +189,18 @@
               </div>
             </article>
           @endforeach
+          <article class="grid-list-item schedule-card">
+            <div>
+              <nav class="cta-nav">
+                <a href="#" class="btn btn-info btn-block btn-lg">Aplicar al programa</a>
+              </nav>
+            </div>
+          </article>
         </div>
       </div>
     </div>
     <footer class="section-footer">
-      <div class="container">
+      <div class="container text-white text-left">
         <p><sup>*</sup> El material didáctico y recursos extra-curriculares están incluídos en la inscripción</p>
       </div>
     </footer>
@@ -201,12 +208,33 @@
 
   <section class="section" id="quien">
     <header class="section-header">
-      <div class="container">
+      <div class="container text-center">
         <h6>¿Y quién será el instructor?</h6>
         <h2>Este patojo</h2>
       </div>
     </header>
-    <div class="section-content"></div>
+    <div class="section-content">
+      <div class="container">
+        <div class="logo-wrapper"></div>
+        <div class="bio-wrapper">
+          <div>
+            <div class="left">
+              <div class="img-wrapper"></div>
+            </div>
+            <div class="right">
+              <div class="content">
+                <h3>Gustavo Ibarra</h3>
+                <p>Tiene 6 años de experiencia programando alrededor de 4 mercados diferentes: Perú, Canadá, México e Inglaterra; para diferentes compañías y proyectos que varían entre fintech, educación, computer science y salud.</p>
+                <p>Ahora viene a la ciudad de Guatemala con la intención de compartir lo que ha aprendido y formar equipos de desarrollo ágiles.</p>
+                <nav class="cta-nav">
+                  <a href="http://soygus.com" rel="noopener" target="_blank" class="btn btn-secondary">Conoce su trabajo</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="section-footer"></footer>
   </section>
 
