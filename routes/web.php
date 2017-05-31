@@ -14,6 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('front.home.index');
-Route::get('/bienvenido', 'HomeController@welcome')->name('front.home.welcome');
+Route::get('/bienvenido/{token}', 'HomeController@welcome')->name('front.home.welcome');
 Route::get('/verification-email-sent', 'HomeController@verificationEmailSent')->name('front.home.verification-email-sent');
 Route::post('/', 'HomeController@register')->name('front.home.register');

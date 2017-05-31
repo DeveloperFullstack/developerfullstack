@@ -30,9 +30,11 @@ class OnRegisterVerification extends Mailable
 
     public function build()
     {
-        return $this->view('emails.home.on-register-verification')
+        $url = route('front.home.welcome', ['token' => $this->user->token]);
+
+        return $this->markdown('emails.home.on-register-verification')
                     ->with([
-                        'token' => $this->user->token,
+                        'url' => $url,
                     ]);
     }
 }

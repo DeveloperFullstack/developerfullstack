@@ -8668,6 +8668,9 @@ html::-webkit-scrollbar {
   body #descripcion-del-programa .section-header {
     text-align: left;
   }
+  body .hero-unit {
+    padding-top: 112px;
+  }
   body .hero-unit .section-content .container {
     min-height: 70vh;
   }
