@@ -225,7 +225,7 @@
             <div class="right">
               <div class="content">
                 <h3>Gustavo Ibarra</h3>
-                <p>Tiene 6 años de experiencia programando alrededor de 4 mercados diferentes: Perú, Canadá, México e Inglaterra; para diferentes compañías y proyectos que varían entre fintech, educación, computer science y salud.</p>
+                <p>Tiene 6 años de experiencia programando en alrededor de 4 mercados diferentes: Perú, Canadá, México e Inglaterra; para diferentes compañías y proyectos que varían entre fintech, educación, computer science y salud.</p>
                 <p>Ahora viene a la ciudad de Guatemala con la intención de compartir lo que ha aprendido y formar equipos de desarrollo ágiles.</p>
                 <nav class="cta-nav">
                   <a href="http://soygus.com" rel="noopener" target="_blank" class="btn btn-secondary">Conoce su trabajo</a>
