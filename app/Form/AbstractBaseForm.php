@@ -7,8 +7,15 @@ use App\Field\Field;
 abstract class AbstractBaseForm
 {
     protected $fields = [];
+    protected $onPostActionString = '';
 
     abstract public function setFields();
+    abstract public function setOnPostActionString();
+
+    public function __construct()
+    {
+        $this->setOnPostActionString();
+    }
 
     public function addField(String $alias): Field
     {
@@ -31,5 +38,10 @@ abstract class AbstractBaseForm
         $fields = $this->getFields();
 
         return $fields[$alias];
+    }
+
+    public function getOnPostActionString(): string
+    {
+        return $this->onPostActionString;
     }
 }

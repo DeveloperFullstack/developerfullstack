@@ -1,16 +1,21 @@
-<fieldset class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-  <label for="{{ $field->getName() }}">{{ $field->getLabel() }}</label>
+<?php
+  $name = $field->getName();
+?>
+
+<fieldset class="form-group {{ $errors->has($name) ? ' has-danger' : '' }}">
+  <label for="{{ $name }}">{{ $field->getLabel() }}</label>
   <input
-    id="{{ $field->getName() }}"
-    name="{{ $field->getName() }}"
+    id="{{ $name }}"
+    name="{{ $name }}"
     type="{{ $field->getType() }}"
     placeholder="{{ $field->getPlaceholder() }}"
     {{ $field->isRequired() ? 'required' : '' }}
-    {{ $autofocus ? 'autofocus' : '' }}
-    class="{{ $field->getClass() }}">
-  {{-- @if ($errors->has('password'))
+    {{ isset($autofocus) && $autofocus ? 'autofocus' : '' }}
+    class="{{ $field->getClass() }}"
+    value="{{ old($name) }}">
+  @if ($errors->has($name))
     <span class="help-block">
-      <strong>{{ $errors->first('password') }}</strong>
+      <strong>{{ $errors->first($name) }}</strong>
     </span>
-  @endif --}}
+  @endif
 </fieldset>

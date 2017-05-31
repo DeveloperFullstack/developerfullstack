@@ -155,13 +155,13 @@ gulp.task('fileinclude', function() {
 
   gulp.watch(`${htmlSrcPath}/*.html`, ['fileinclude']);
 });
-watchTaskList.push('fileinclude');
+// watchTaskList.push('fileinclude');
 
 gulp.task('browser-sync', function() {
   browserSync.init({
     proxy: '0.0.0.0:8000',
     port: 3000,
-    open: true,
+    open: false,
   });
 });
 watchTaskList.push('browser-sync');

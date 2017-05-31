@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Form\RegisterForm;
+use App\Http\Requests\RegisterUser;
+use App\ModelAdapters\UserAdapter as User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OnRegisterVerification;
 
 class HomeController extends Controller
 {
@@ -142,6 +146,27 @@ class HomeController extends Controller
         $registerForm = new RegisterForm;
         $registerForm->setFields();
 
-        return view('front/landing/home', compact('schedule', 'registerForm'));
+        return view('front/home/index', compact('schedule', 'registerForm'));
+    }
+
+    public function register(RegisterUser $request)
+    {
+        $user = User::create([
+            'email' => $request->input('email'),
+            ]);
+
+        Mail::to($user)->send(new OnRegisterVerification($user));
+
+        return redirect()->route('front.home.verification-email-sent');
+    }
+
+    public function welcome()
+    {
+        return view('front.home.welcome');
+    }
+
+    public function verificationEmailSent()
+    {
+        return view('front.home.verification-email-sent');
     }
 }

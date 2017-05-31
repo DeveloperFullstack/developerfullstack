@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('head-link')
+  <link href="{{ asset('css/front/home/index.css') }}" rel="stylesheet">
+@endsection
+
+@section('logo-img')
+  <a href="#" class="logo">
+    <img src="/img/logo_devfs-light.png" alt="DevFS">
+  </a>
+@endsection
+
 @section('content')
   <section class="section hero-unit">
     <div class="StripeBackground accelerated stripes-header">
@@ -247,8 +257,10 @@
     </header>
     <div class="section-content">
       <div class="container-sm">
-        <form action="" id="register-form">
-          @include('fields.text', ['field' => $registerForm->getField('email'), 'autofocus' => true])
+        <form action="{{ $registerForm->getOnPostActionString() }}" method="POST" id="register-form">
+          {{ csrf_field() }}
+
+          @include('fields.text', ['field' => $registerForm->getField('email')])
 
           <button type="submit" class="btn btn-inverse btn-lg btn-block">Continuar <i class="icon-chevron-right"></i></button>
         </form>

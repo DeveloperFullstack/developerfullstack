@@ -15,6 +15,13 @@ body {}
   position: relative;
 }
 
+.cta-nav {
+  margin-top: get-spacer(3, y);
+  a {
+    margin-right: get-spacer(5, x);
+  }
+}
+
 /*
   Media queries
 */
