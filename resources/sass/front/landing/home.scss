@@ -61,34 +61,14 @@
 }
 
 #quien {
-  position: relative;
-  &:before {
-    background-color: $gray-lightest;
-    transform: skewY(-12deg);
-    position: absolute;
-    // bottom: 440px;
-    height: 100%;
-    content: "";
-    width: 100%;
-  }
   .section-content {
-    .container {
-      @include flex-column-end;
-      min-height: 662px;
-    }
-  }
-  .logo-wrapper {
-    @include position(absolute, 0 0 0 0);
-    @include bg-img-block;
-    background-image: url(/img/logo_devfs.png);
-    background-position: center;
-    background-size: 90%;
-    opacity: 0.3;
-    height: 100%;
-    width: 100%;
+    @include flex-column-center;
+    min-height: auto;
   }
   .bio-wrapper {
     position: relative;
+    bottom: -35px;
+    z-index: 10;
     > div {
       @include flex-row-space-between;
       @include box-shadow-default;
@@ -102,12 +82,21 @@
       width: 50%;
     }
     .left {
+      .badge {
+        @include position(absolute, -50px null null -50px);
+        transform: rotate(-20deg);
+        z-index: 10;
+        img {
+          width: 140px;
+          height: auto;
+        }
+      }
       .img-wrapper {
-        border-top-left-radius: $border-radius-lg;
-        border-bottom-left-radius: $border-radius-lg;
         @include position(absolute, 0 0 0 0);
         @include bg-img-block;
         background-image: url(/img/profile-gus.jpg);
+        border-bottom-left-radius: $border-radius-lg;
+        border-top-left-radius: $border-radius-lg;
         height: 100%;
         width: 100%;
       }
@@ -235,6 +224,16 @@ $logos-height-control: 840px;
       width: 100%;
     }
   }
+}
+
+#aplicar {
+  background-color: $brand-inverse;
+}
+
+#register-form {
+  border-radius: $border-radius-lg;
+  padding: get-spacer(3, x);
+  background-color: white;
 }
 
 .schedule-cards-list {
@@ -381,13 +380,14 @@ $xxl-desktop: 1980px;
       }
     }
     #quien {
-      .logo-wrapper {
-        top: -370px;
-        bottom: auto;
-      }
       .bio-wrapper {
         > div {
           @include flex-column;
+        }
+        .left {
+          .badge {
+            left: -10px;
+          }
         }
         .left,
         .right {

@@ -211,14 +211,15 @@
       <div class="container text-center">
         <h6>¿Y quién será el instructor?</h6>
         <h2>Este patojo</h2>
+        <i class="icon-chevron-down"></i>
       </div>
     </header>
     <div class="section-content">
       <div class="container">
-        <div class="logo-wrapper"></div>
         <div class="bio-wrapper">
           <div>
             <div class="left">
+              <div class="badge"><img src="/img/logo_devfs-shadow.png" alt="DevFS Badge"></div>
               <div class="img-wrapper"></div>
             </div>
             <div class="right">
@@ -235,25 +236,23 @@
         </div>
       </div>
     </div>
-    <footer class="section-footer"></footer>
   </section>
 
-
   <section class="section" id="aplicar">
-    <header class="section-header"></header>
+    <header class="section-header">
+      <div class="container text-center text-white">
+        <h2>¿Estás listo para darle un giro a tu carrera?</h2>
+        <h3>Comienza por registrarte, después contesta un breve formulario</h3>
+      </div>
+    </header>
     <div class="section-content">
-      <div class="container">
-        <div class="container">
-          <div class="col-sm-6">
-            <h2>¿Estás listo para darle un giro a tu carrera?</h2>
-            <h3>Comienza por registrarte, después contesta un breve formulario</h3>
-          </div>
-          <div class="col-sm-6">
+      <div class="container-sm">
+        <form action="" id="register-form">
+          @include('fields.text', ['field' => $registerForm->getField('email'), 'autofocus' => true])
 
-          </div>
-        </div>
+          <button type="submit" class="btn btn-inverse btn-lg btn-block">Continuar <i class="icon-chevron-right"></i></button>
+        </form>
       </div>
     </div>
-    <footer class="section-footer"></footer>
   </section>
 @endsection

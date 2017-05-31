@@ -8,6 +8,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">
   <link href="{{ asset('css/front/landing/home.css') }}" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/img/favicon_devfs.png">
 </head>
 <body>
   <div id="app">

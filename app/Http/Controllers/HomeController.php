@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Form\RegisterForm;
 
 class HomeController extends Controller
 {
@@ -138,6 +139,9 @@ class HomeController extends Controller
     {
         $schedule = $this->schedule;
 
-        return view('front/landing/home', compact('schedule'));
+        $registerForm = new RegisterForm;
+        $registerForm->setFields();
+
+        return view('front/landing/home', compact('schedule', 'registerForm'));
     }
 }
