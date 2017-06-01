@@ -10,6 +10,7 @@ trait FormActionTrait
     {
         $field = new Field;
 
+        $field->setAlias($alias);
         $field->setName($alias);
 
         $this->fields[$alias] = $field;
@@ -32,5 +33,34 @@ trait FormActionTrait
     public function getOnPostActionString(): string
     {
         return $this->onPostActionString;
+    }
+
+    public function getValidationRules(): array
+    {
+        $fields = $this->getFields();
+
+        $rules = [];
+
+        foreach ($fields as $field) {
+            $rules[$field->getAlias()] = $field->getValidationRules();
+        }
+
+        return $rules;
+    }
+
+    public function getValidationMessages(): array
+    {
+        $fields = $this->getFields();
+
+        $messages = [];
+
+        foreach ($fields as $field) {
+            foreach ($field->getValidationMessages() as $validator => $message) {
+                $key = "{$field->getAlias()}.$validator";
+                $messages[$key] = $message;
+            }
+        }
+
+        return $messages;
     }
 }

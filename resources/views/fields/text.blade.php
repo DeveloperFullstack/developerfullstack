@@ -1,5 +1,5 @@
 <?php
-  $name = $field->getName();
+  $name = $field->getAlias();
 ?>
 
 <fieldset class="form-group {{ $errors->has($name) ? ' has-danger' : '' }}">

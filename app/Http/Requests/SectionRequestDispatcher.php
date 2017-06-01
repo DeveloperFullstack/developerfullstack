@@ -32,15 +32,21 @@ class SectionRequestDispatcher extends FormRequest
 
         $section = $UIApplication->getSectionBySlug($slug);
 
-        return [
-            'email' => 'required|email|unique:users,email',
-        ];
+        $section->setFields();
+
+        return $section->getValidationRules();
     }
 
     public function messages()
     {
-        return [
-            'email.unique' => 'Este email ya está en uso',
-        ];
+        $slug = $this->slug;
+
+        $UIApplication = request()->getUIApplication();
+
+        $section = $UIApplication->getSectionBySlug($slug);
+
+        $section->setFields();
+
+        return $section->getValidationMessages();
     }
 }

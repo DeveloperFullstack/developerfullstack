@@ -28,6 +28,8 @@ class InformacionPersonal extends AbstractBaseSection
             ->setType(Field::TYPE_DATE)
             ->required()
             ->setPlaceholder('DD/MM/AAAA')
+            ->setValidationRules('required|date')
+            ->setValidationMessages(['date' => 'El campo debe ser una fecha válida'])
             ->setValueFromDb();
 
         return $this;

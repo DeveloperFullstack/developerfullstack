@@ -177,8 +177,16 @@ class HomeController extends Controller
         }
 
         // TODO: show referral code and make logic
+
         // TODO send welcome email with link to continue with the application
-        return view('front.home.welcome');
+
+        $UIApplication = request()->getUIApplication();
+
+        $slug = $UIApplication->getSectionSlugs()[0];
+
+        $url = route('front.application.seccion', ['slug' => $slug]);
+
+        return view('front.home.welcome', ['url' => $url]);
     }
 
     public function verificationEmailSent()

@@ -19,6 +19,9 @@ class Field
 
     private $model = null;
 
+    private $validationRules;
+    private $validationMessages = [];
+
     const TYPE_TEXT = 'text';
     const TYPE_SELECT = 'select';
     const TYPE_TEXTAREA = 'textarea';
@@ -176,5 +179,29 @@ class Field
         }
 
         return $this->setValue($value);
+    }
+
+    public function setValidationRules(String $rules)
+    {
+        $this->validationRules = $rules;
+
+        return $this;
+    }
+
+    public function getValidationRules(): string
+    {
+        return $this->validationRules;
+    }
+
+    public function setValidationMessages(Array $messages)
+    {
+        $this->validationMessages = $messages;
+
+        return $this;
+    }
+
+    public function getValidationMessages(): array
+    {
+        return $this->validationMessages;
     }
 }

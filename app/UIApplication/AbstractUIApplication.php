@@ -53,7 +53,7 @@ abstract class AbstractUIApplication
         return $this->sectionInstances;
     }
 
-    public function getSectionBySlug(String $slug): AbstractBaseSection
+    public function getSectionBySlug(String $slug)
     {
         $sections = $this->getSections();
 

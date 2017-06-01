@@ -7,7 +7,7 @@ use App\ModelAdapters\UserAdapter as User;
 
 class ApplicationController extends Controller
 {
-    public function seccion(String $slug)
+    public function seccion(String $slug = null)
     {
         $UIApplication = request()->getUIApplication();
 
