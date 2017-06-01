@@ -3,14 +3,20 @@
 namespace App\Form;
 
 use App\Field\Field;
+use App\Exceptions\FieldException;
 
 trait FormActionTrait
 {
+    protected $hasError = false;
+
+    protected $error = [];
+
     public function addField(String $alias): Field
     {
         $field = new Field;
 
         $field->setAlias($alias);
+
         $field->setName($alias);
 
         $this->fields[$alias] = $field;
@@ -35,32 +41,57 @@ trait FormActionTrait
         return $this->onPostActionString;
     }
 
-    public function getValidationRules(): array
+    public function save()
     {
-        $fields = $this->getFields();
+        $data = request()->all();
 
-        $rules = [];
-
-        foreach ($fields as $field) {
-            $rules[$field->getAlias()] = $field->getValidationRules();
+        if (isset($data['_token'])) {
+            array_shift($data);
         }
 
-        return $rules;
-    }
+        foreach ($data as $key => $value) {
+            $field = $this->getField($key);
 
-    public function getValidationMessages(): array
-    {
-        $fields = $this->getFields();
+            try {
+                if (isset($value['key'])) {
+                    $value = $value['key'];
+                }
 
-        $messages = [];
-
-        foreach ($fields as $field) {
-            foreach ($field->getValidationMessages() as $validator => $message) {
-                $key = "{$field->getAlias()}.$validator";
-                $messages[$key] = $message;
+                $field->save($value);
+            } catch (FieldException $e) {
+                return $this->setError([
+                    'message' => $e->getMessage(),
+                    ]);
+            } catch (\Exception $e) {
+                error_log($e->getMessage());
+                return $this->setError([
+                    'message' => 'No hemos podido guardar tus datos. Intenta de nuevo.',
+                    ]);
             }
         }
+    }
 
-        return $messages;
+    public function setError(Array $error)
+    {
+        $this->hasError = true;
+
+        $this->error = $error;
+
+        return $this;
+    }
+
+    public function getErrorMessage(): string
+    {
+        return $this->error['message'];
+    }
+
+    public function getValidationRules()
+    {
+        return [];
+    }
+
+    public function getValidationMessages()
+    {
+        return [];
     }
 }

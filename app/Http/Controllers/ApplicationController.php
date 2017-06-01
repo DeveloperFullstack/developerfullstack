@@ -24,6 +24,8 @@ class ApplicationController extends Controller
 
         $section = $UIApplication->getSectionBySlug($slug);
 
+        $section->setFields();
+
         $section->save();
 
         $nextSectionSlug = $UIApplication->getNextSectionSlug($slug);

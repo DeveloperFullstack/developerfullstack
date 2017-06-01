@@ -9,6 +9,7 @@
     <div class="section-content">
       <div class="container-md">
         @include('fields/text', ['field' => $section->getField('dob')])
+        @include('fields/radio', ['field' => $section->getField('gender_id')])
       </div>
     </div>
     <footer class="section-footer">

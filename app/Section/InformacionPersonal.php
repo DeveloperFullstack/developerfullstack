@@ -3,6 +3,7 @@
 namespace App\Section;
 
 use App\Field\Field;
+use App\LuGender;
 
 class InformacionPersonal extends AbstractBaseSection
 {
@@ -28,10 +29,31 @@ class InformacionPersonal extends AbstractBaseSection
             ->setType(Field::TYPE_DATE)
             ->required()
             ->setPlaceholder('DD/MM/AAAA')
-            ->setValidationRules('required|date')
-            ->setValidationMessages(['date' => 'El campo debe ser una fecha válida'])
+            ->setValueFromDb();
+
+        $this->addField('gender_id')
+            ->setModel($this->user)
+            ->setOptions(LuGender::OPTIONS)
+            ->setLabel('Género')
+            ->setType(Field::TYPE_RADIO)
+            ->required()
             ->setValueFromDb();
 
         return $this;
+    }
+
+    public function getValidationRules()
+    {
+        return [
+            'dob' => 'required|date',
+            'gender_id.key.*' => 'required|date'
+        ];
+    }
+
+    public function getValidationMessages()
+    {
+        return [
+            'dob.date' => 'El campo debe ser una fecha válida',
+        ];
     }
 }

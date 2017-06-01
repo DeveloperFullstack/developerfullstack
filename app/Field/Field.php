@@ -19,9 +19,6 @@ class Field
 
     private $model = null;
 
-    private $validationRules;
-    private $validationMessages = [];
-
     const TYPE_TEXT = 'text';
     const TYPE_SELECT = 'select';
     const TYPE_TEXTAREA = 'textarea';
@@ -181,27 +178,52 @@ class Field
         return $this->setValue($value);
     }
 
-    public function setValidationRules(String $rules)
+    public function save($value)
     {
-        $this->validationRules = $rules;
+        $model = $this->getModel();
+
+        if (!$model) {
+            error_log('No field model specified');
+            throw new FieldException('No hemos podido guardar tus datos');
+        }
+
+        $column = $this->getName();
+
+        if (!$column) {
+            error_log('No field column specified');
+            throw new FieldException('No hemos podido guardar tus datos');
+        }
+
+        $model->$column = $value;
+
+        $model->save();
 
         return $this;
-    }
-
-    public function getValidationRules(): string
-    {
-        return $this->validationRules;
-    }
-
-    public function setValidationMessages(Array $messages)
-    {
-        $this->validationMessages = $messages;
-
-        return $this;
-    }
-
-    public function getValidationMessages(): array
-    {
-        return $this->validationMessages;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
