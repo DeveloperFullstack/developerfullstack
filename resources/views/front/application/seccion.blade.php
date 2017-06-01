@@ -11,20 +11,5 @@
 @endsection
 
 @section('content')
-
-  <section class="section" id="">
-    <header class="section-header">
-      <div class="container">
-
-      </div>
-    </header>
-    <div class="section-content">
-      <div class="container-sm">
-
-      </div>
-    </div>
-    <footer class="section-footer">
-
-    </footer>
-  </section>
+  @include('front/sections/' . $section->getSlug(), ['section' => $section])
 @endsection

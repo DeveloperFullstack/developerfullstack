@@ -12,12 +12,28 @@ use App\UIApplication\Factory as UIApplicationFactory;
 
 class ApplicationController extends Controller
 {
-    public function seccion()
+    public function seccion(String $slug)
     {
         $user = Auth::user();
 
         $UIApplication = UIApplicationFactory::get($user);
 
-        return view('front/application/seccion');
+        $section = $UIApplication->getSectionBySlug($slug);
+        $section->setFields();
+
+        return view('front/application/seccion', compact('section'));
+    }
+
+    public function store(Request $request, String $slug)
+    {
+        $user = Auth::user();
+
+        $UIApplication = UIApplicationFactory::get($user);
+
+        $nextSectionSlug = $UIApplication->getNextSectionSlug($slug);
+
+        var_dump($nextSectionSlug); exit;
+
+        return redirect()->route('front.application.seccion')->with('slug', $nextSectionSlug);
     }
 }
