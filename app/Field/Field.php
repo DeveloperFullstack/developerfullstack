@@ -2,6 +2,8 @@
 
 namespace App\Field;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Field
 {
     private $name = null;
@@ -14,6 +16,8 @@ class Field
     private $placeholder = null;
     private $required = false;
     private $class = 'form-control form-control-lg';
+
+    private $model = null;
 
     const TYPE_TEXT = 'text';
     const TYPE_SELECT = 'select';
@@ -56,7 +60,7 @@ class Field
         return $this;
     }
 
-    public function getValue($value)
+    public function getValue()
     {
         return $this->value;
     }
@@ -143,5 +147,34 @@ class Field
     public function isRequired(): bool
     {
         return $this->required;
+    }
+
+    public function setModel(Model $model)
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    public function setValueFromDb()
+    {
+        $value = null;
+
+        $model = $this->getModel();
+
+        $column = $this->getName();
+
+        if ($model != null && $column != null) {
+            $model = $model;
+
+            $value = $model->$column;
+        }
+
+        return $this->setValue($value);
     }
 }

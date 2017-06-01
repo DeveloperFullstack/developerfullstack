@@ -2,38 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\RegisterUser;
+use App\Http\Requests\SectionRequestDispatcher;
 use App\ModelAdapters\UserAdapter as User;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\OnRegisterVerification;
-use Auth;
-use App\UIApplication\Factory as UIApplicationFactory;
 
 class ApplicationController extends Controller
 {
     public function seccion(String $slug)
     {
-        $user = Auth::user();
-
-        $UIApplication = UIApplicationFactory::get($user);
+        $UIApplication = request()->getUIApplication();
 
         $section = $UIApplication->getSectionBySlug($slug);
+
         $section->setFields();
 
         return view('front/application/seccion', compact('section'));
     }
 
-    public function store(Request $request, String $slug)
+    public function store(SectionRequestDispatcher $request, String $slug)
     {
-        $user = Auth::user();
+        $UIApplication = request()->getUIApplication();
 
-        $UIApplication = UIApplicationFactory::get($user);
+        $section = $UIApplication->getSectionBySlug($slug);
+
+        $section->save();
 
         $nextSectionSlug = $UIApplication->getNextSectionSlug($slug);
 
-        var_dump($nextSectionSlug); exit;
+        if (!$nextSectionSlug) {
+            return redirect()->route('front.application.completa');
+        }
 
-        return redirect()->route('front.application.seccion')->with('slug', $nextSectionSlug);
+        return redirect()->route('front.application.seccion', ['slug' => $nextSectionSlug]);
     }
 }

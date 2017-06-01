@@ -12,7 +12,7 @@
     {{ $field->isRequired() ? 'required' : '' }}
     {{ isset($autofocus) && $autofocus ? 'autofocus' : '' }}
     class="{{ $field->getClass() }}"
-    value="{{ old($name) }}">
+    value="{{ old($name) ? old($name) : $field->getValue() }}">
   @if ($errors->has($name))
     <span class="help-block">
       <strong>{{ $errors->first($name) }}</strong>

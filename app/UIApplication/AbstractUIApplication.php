@@ -3,6 +3,7 @@
 namespace App\UIApplication;
 
 use App\Section\AbstractBaseSection;
+use App\ModelAdapters\UserAdapter as User;
 
 abstract class AbstractUIApplication
 {
@@ -10,15 +11,19 @@ abstract class AbstractUIApplication
     public $sectionInstances = [];
     public $sectionSlugs = [];
 
-    public function __construct()
+    protected $user = null;
+
+    public function __construct(User $user)
     {
+        $this->user = $user;
+
         $this->addSections($this->sections);
     }
 
     public function addSections(Array $sections = [])
     {
         foreach ($sections as $section) {
-            $sectionInstance = new $section;
+            $sectionInstance = new $section($this->user);
 
             $slug = $sectionInstance->getSlug();
 
@@ -74,7 +79,7 @@ abstract class AbstractUIApplication
 
         for ($i = 0; $i < count($slugs); $i++) {
             if ($slugs[$i] == $currentSlug) {
-                $slug = $slugs[$i+1];
+                $slug = isset($slugs[$i+1]) ? $slugs[$i+1] : null;
             }
         }
 

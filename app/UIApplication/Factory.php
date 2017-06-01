@@ -2,7 +2,7 @@
 
 namespace App\UIApplication;
 
-use App\User;
+use App\ModelAdapters\UserAdapter as User;
 use App\ModelAdapters\StudentAdapter as Student;
 
 class Factory
@@ -13,6 +13,6 @@ class Factory
     {
         $UIApplication = self::UI_APPLICATION_PLACEHOLDER . Student::CURRENT_PROGRAM_VERSION;
 
-        return new $UIApplication;
+        return new $UIApplication($user);
     }
 }

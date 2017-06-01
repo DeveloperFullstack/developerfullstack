@@ -23,10 +23,12 @@ class InformacionPersonal extends AbstractBaseSection
     public function setFields()
     {
         $this->addField('dob')
+            ->setModel($this->user)
             ->setLabel('Fecha de nacimiento')
             ->setType(Field::TYPE_DATE)
             ->required()
-            ->setPlaceholder('YYYY/MM/DD');
+            ->setPlaceholder('DD/MM/AAAA')
+            ->setValueFromDb();
 
         return $this;
     }
