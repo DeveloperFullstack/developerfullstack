@@ -2872,6 +2872,18 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 */
 /* PROJECT ESPECIFIC FONTS */
 /* PROJECT ESPECIFIC FONTS */
+.book {
+  font-family: "Source San Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.medium {
+  font-family: "Source San Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 /* EBM:RESPONSIVE FONT RESIZE */
 html {
   font-size: 1rem;

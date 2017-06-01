@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins";
+@import "./node_modules/bootstrap/scss/normalize";
+@import "./node_modules/bootstrap/scss/print";
+@import "./node_modules/bootstrap/scss/reboot";
+@import "./node_modules/bootstrap/scss/type";
+@import "./node_modules/bootstrap/scss/images";
+@import "./node_modules/bootstrap/scss/grid";
+@import "./node_modules/bootstrap/scss/buttons";
+@import "./node_modules/bootstrap/scss/utilities/background";
+@import "./node_modules/bootstrap/scss/utilities/clearfix";
+@import "./node_modules/bootstrap/scss/utilities/display";
+@import "./node_modules/bootstrap/scss/utilities/float";
+@import "./node_modules/bootstrap/scss/utilities/screenreaders";
+@import "./node_modules/bootstrap/scss/utilities/text";
+@import "./node_modules/bootstrap/scss/utilities/visibility";
+@import "bourbon";
+@import "./resources/sass/ebm-variables";
+@import "./node_modules/ebm/functions/ebm-functions";
+@import "./node_modules/ebm/helpers/ebm-helpers";
+@import "./resources/sass/ebm-fonts-setup";
+@import "./resources/sass/ebm-fonts";
+@import "./node_modules/ebm/control/ebm-text-responsive-control";
+@import "./node_modules/ebm/control/ebm-text-control";
+@import "./node_modules/ebm/modules/ebm-header";
+@import "./node_modules/ebm/elements/ebm-section";
+@import "./node_modules/ebm/control/ebm-container-control";
+@import "./node_modules/ebm/elements/ebm-buttons";
+@import "./node_modules/ebm/elements/ebm-icons";
+@import "./node_modules/ebm/modules/ebm-hero-unit";
+@import "./resources/sass/ebm-overrides";
+@import "./resources/sass/ebm-global";
+
+.header {
+  @include position(absolute, 0 0 null 0);
+  width: 100%;
+  z-index: 10;
+  .logo {
+    font-size: $font-size-h1;
+    color: white;
+  }
+}
+
+.hero-unit {
+  position: relative;
+  .section-content {
+    .container {
+      @include flex-column-center;
+      min-height: 63vh;
+      color: white;
+    }
+    h5 {
+      margin-bottom: get-spacer(3, x);
+    }
+    h1 {
+      line-height: 3.3rem;
+    }
+    nav {
+      margin-top: get-spacer(5, y);
+    }
+  }
+  .img-wrapper {
+    perspective: 1200px;
+    perspective-origin: 80% 80%;
+    .img {
+      @include bg-img-block;
+      transform: scale(1.3) rotateX(1deg) rotateY(-15deg) rotate(-1deg) translateX(63px) translateY(34px);
+      box-shadow: 0 55px 70px -20px rgba(50,50,93,.55), 0 20px 30px -10px rgba(0,0,0,.14);
+      background-image: url(/img/code.jpg);
+      border-radius: $border-radius;
+      height: 280px;
+      width: 100%;
+    }
+  }
+}
+
+
+/*
+  Media queries
+*/
+$xl-desktop: 1500px;
+$xxl-desktop: 1980px;
+@media #{$xs-only} {}
+@media #{$sm-only} {}
+@media #{$md-only} {}
+@media #{$lg-only} {}
+@media #{$sm-down} {
+  body {
+    .hero-unit {
+      padding-top: $header-height-control;
+      .section-content {
+        .container {
+          min-height: 70vh;
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ use App\Http\Requests\RegisterUser;
 use App\ModelAdapters\UserAdapter as User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OnRegisterVerification;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -131,7 +132,6 @@ class HomeController extends Controller
                 'Graduación',
             ],
         ],
-
     ];
 
     /**
@@ -160,8 +160,24 @@ class HomeController extends Controller
         return redirect()->route('front.home.verification-email-sent');
     }
 
-    public function welcome()
+    public function welcome(String $token)
     {
+        try {
+            $user = User::where('token', $token)->firstOrFail()->confirmEmail();
+        } catch (\Exception $e) {
+            return abort(404);
+        }
+
+        $remember = true;
+
+        Auth::login($user, true);
+
+        if (!Auth::check()) {
+            return abort(404);
+        }
+
+        // TODO: show referral code and make logic
+        // TODO send welcome email with link to continue with the application
         return view('front.home.welcome');
     }
 

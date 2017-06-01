@@ -3,6 +3,8 @@
 namespace App\ModelAdapters;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use App\ModelAdapters\StudentAdapter as Student;
 
 class UserAdapter extends User
 {
@@ -19,11 +21,15 @@ class UserAdapter extends User
     public function confirmEmail()
     {
         $this->is_verified = true;
+        $this->password = Hash::make(str_random(12));
         $this->token = null;
         $this->save();
 
-        return [
-            'referral_code' => $this->referral_code,
-        ];
+        Student::create([
+            'user_id' => $this->id,
+            'program_version' => Student::CURRENT_PROGRAM_VERSION
+            ]);
+
+        return $this;
     }
 }

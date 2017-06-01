@@ -22,7 +22,7 @@
       <div class="container">
         <h5>A continuación, te haremos una serie de preguntas para evaluar tu perfil.</h5>
         <nav class="cta-nav">
-          <a href="#" class="btn btn-lg btn-info">Continuar <i class="icon-chevron-right"></i></a>
+          <a href="{{ route('front.application.seccion') }}" class="btn btn-lg btn-info">Continuar <i class="icon-chevron-right"></i></a>
         </nav>
       </div>
     </div>

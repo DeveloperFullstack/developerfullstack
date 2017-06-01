@@ -24,6 +24,7 @@
 @import "./resources/sass/ebm-fonts-setup";
 @import "./resources/sass/ebm-fonts";
 @import "./node_modules/ebm/control/ebm-text-responsive-control";
+@import "./node_modules/ebm/control/ebm-text-control";
 @import "./node_modules/ebm/modules/ebm-header";
 @import "./node_modules/ebm/elements/ebm-section";
 @import "./node_modules/ebm/control/ebm-container-control";
@@ -51,6 +52,7 @@
   .overview-item {
     text-align: center;
     h5 {
+      @include medium;
       min-height: 49px;
     }
   }
@@ -253,6 +255,15 @@ $logos-height-control: 840px;
 
 #aplicar {
   background-color: $brand-inverse;
+  min-height: 100vh;
+  // display: block;
+  .section-content {
+    min-height: auto;
+  }
+  .section-footer {
+    background-color: darken($brand-inverse, 7%);
+    margin-top: auto;
+  }
 }
 
 #register-form {

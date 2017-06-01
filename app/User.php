@@ -32,4 +32,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function student()
+    {
+        return $this->hasMany('App\ModelAdapters\StudentAdapter', 'user_id');
+    }
 }

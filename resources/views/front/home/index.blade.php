@@ -28,8 +28,8 @@
             <h5>Emprendedores que programan</h5>
             <h1>Bienvenido a DeveloperFullstack, un programa presencial donde <strong>te enseñamos a utilizar las tecnologías que las startups necesitan</strong></h1>
             <nav class="cta-nav">
-              <a href="#" class="btn btn-inverse btn-lg">Aplicar</a>
-              <a href="#" class="btn btn-secondary btn-lg">Conoce el programa</a>
+              <a href="#aplicar" class="btn btn-inverse btn-lg">Aplicar</a>
+              <a href="#descripcion-del-programa" class="btn btn-secondary btn-lg">Conoce el programa</a>
             </nav>
           </div>
           <div class="col-sm-5 hidden-md-down">
@@ -102,7 +102,7 @@
               <li><i class="icon-new-tab"></i>Crear tus propios prototipos, buscando tus propias soluciones</li>
             </ul>
             <nav class="cta-nav">
-              <a href="#" class="btn btn-inverse btn-lg">Aplicar</a>
+              <a href="#aplicar" class="btn btn-inverse btn-lg">Aplicar</a>
             </nav>
           </div>
         </div>
@@ -135,7 +135,7 @@
           <li><span>Optimización de los recursos económicos de la compañía</span>. Inversión concreta sobre los verdaderas necesidades</li>
           <li>
             <nav class="cta-nav">
-              <a href="#" class="btn btn-secondary btn-block btn-lg">Aplicar al programa</a>
+              <a href="#aplicar" class="btn btn-secondary btn-block btn-lg">Aplicar al programa</a>
             </nav>
           </li>
         </ul>
@@ -202,7 +202,7 @@
           <article class="grid-list-item schedule-card">
             <div>
               <nav class="cta-nav">
-                <a href="#" class="btn btn-info btn-block btn-lg">Aplicar al programa</a>
+                <a href="#aplicar" class="btn btn-info btn-block btn-lg">Aplicar al programa</a>
               </nav>
             </div>
           </article>
@@ -266,5 +266,36 @@
         </form>
       </div>
     </div>
+    <footer class="section-footer">
+      <div class="container text-center text-white normalize-text">
+        <p>{{ date('Y') }}. &copy; DeveloperFullstack.com</p>
+      </div>
+    </footer>
   </section>
 @endsection
+
+
+@section('footer-script')
+  <script>
+    (function(){
+      @if ($errors->has('email'))
+        document.querySelector('[name=email]').focus();
+      @endif
+    })();
+  </script>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
