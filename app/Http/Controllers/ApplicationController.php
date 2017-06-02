@@ -36,4 +36,9 @@ class ApplicationController extends Controller
 
         return redirect()->route('front.application.seccion', ['slug' => $nextSectionSlug]);
     }
+
+    public function completa()
+    {
+        return view('front/application/completa');
+    }
 }

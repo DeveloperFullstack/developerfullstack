@@ -3844,6 +3844,11 @@ input[type="submit"].btn.btn-inverse,
   float: left;
 }
 
+.grid-list .grid-list-item .form-group,
+.grid-list > li .form-group {
+  margin-bottom: 0;
+}
+
 .grid-list.grid-list-item-height .grid-list-item,
 .grid-list.grid-list-item-height > li {
   min-height: 350px;

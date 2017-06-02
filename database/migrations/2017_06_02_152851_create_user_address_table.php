@@ -18,6 +18,7 @@ class CreateUserAddressTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('country_id')->unsigned()->nullable()->default(null);
             $table->integer('state_id')->unsigned()->nullable()->default(null);
+            $table->string('zip_code')->nullable()->default(null);
             $table->string('city')->nullable()->default(null);
             $table->string('street')->nullable()->default(null);
             $table->string('interior')->nullable()->default(null);

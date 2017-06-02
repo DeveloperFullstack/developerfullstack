@@ -8,7 +8,27 @@
     </header>
     <div class="section-content">
       <div class="container-md">
-        @include('fields/text', ['field' => $section->getField('dob')])
+        @include('fields/text', ['field' => $section->getField('zip_code')])
+        <div class="grid-list grid-list-2 grid-list-1-xs">
+          <article class="grid-list-item">
+            @include('fields/select', ['field' => $section->getField('country_id')])
+          </article>
+          <article class="grid-list-item">
+            @include('fields/select', ['field' => $section->getField('state_id')])
+          </article>
+          <article class="grid-list-item">
+            @include('fields/text', ['field' => $section->getField('neighborhood')])
+          </article>
+          <article class="grid-list-item">
+            @include('fields/text', ['field' => $section->getField('city')])
+          </article>
+          <article class="grid-list-item">
+            @include('fields/text', ['field' => $section->getField('street')])
+          </article>
+          <article class="grid-list-item">
+            @include('fields/text', ['field' => $section->getField('interior')])
+          </article>
+        </div>
       </div>
     </div>
     <footer class="section-footer">
