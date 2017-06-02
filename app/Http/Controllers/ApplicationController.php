@@ -4,16 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SectionRequestDispatcher;
 use App\ModelAdapters\UserAdapter as User;
+use App\Exceptions\FieldException;
 
 class ApplicationController extends Controller
 {
-    public function seccion(String $slug = null)
+    public function seccion(String $slug = null, Bool $hasError = false, String $message = null)
     {
         $UIApplication = request()->getUIApplication();
 
         $section = $UIApplication->getSectionBySlug($slug);
 
         $section->setFields();
+
+        if ($hasError) {
+            $section->setError([
+                'message' => $message
+                ]);
+        }
 
         return view('front/application/seccion', compact('section'));
     }
@@ -27,6 +34,14 @@ class ApplicationController extends Controller
         $section->setFields();
 
         $section->save();
+
+        if ($section->hasError()) {
+            return redirect()->route('front.application.seccion', [
+                'slug' => $slug,
+                'hasError' => $section->hasError(),
+                'message' => $section->getErrorMessage()
+                ]);
+        }
 
         $nextSectionSlug = $UIApplication->getNextSectionSlug($slug);
 

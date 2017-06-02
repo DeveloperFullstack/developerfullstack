@@ -44,7 +44,6 @@ class DatosDeVivienda extends AbstractBaseSection
             ->setLabel('País')
             ->setType(Field::TYPE_SELECT)
             ->required()
-            ->setPlaceholder('00000')
             ->setValueFromDb();
 
         $this->addField('state_id')
@@ -53,7 +52,6 @@ class DatosDeVivienda extends AbstractBaseSection
             ->setLabel('Estado')
             ->setType(Field::TYPE_SELECT)
             ->required()
-            ->setPlaceholder('00000')
             ->setValueFromDb();
 
         $this->addField('city')
@@ -76,7 +74,6 @@ class DatosDeVivienda extends AbstractBaseSection
             ->setModel($address)
             ->setLabel('No. interior (opcional)')
             ->setType(Field::TYPE_TEXT)
-            ->required()
             ->setPlaceholder('eg. int 5-b')
             ->setValueFromDb();
 

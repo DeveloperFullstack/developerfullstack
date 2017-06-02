@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Field\Field;
 use App\Exceptions\FieldException;
+use Illuminate\Support\Facades\Log;
 
 trait FormActionTrait
 {
@@ -63,7 +64,7 @@ trait FormActionTrait
                     'message' => $e->getMessage(),
                     ]);
             } catch (\Exception $e) {
-                error_log($e->getMessage());
+                Log::critical($e->getMessage());
                 return $this->setError([
                     'message' => 'No hemos podido guardar tus datos. Intenta de nuevo.',
                     ]);
@@ -78,6 +79,11 @@ trait FormActionTrait
         $this->error = $error;
 
         return $this;
+    }
+
+    public function hasError(): bool
+    {
+        return $this->hasError;
     }
 
     public function getErrorMessage(): string

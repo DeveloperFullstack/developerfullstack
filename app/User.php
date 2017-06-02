@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Utils\StringUtil;
 
 class User extends Authenticatable
 {
@@ -18,6 +19,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'paternal_last_name',
+        'maternal_last_name',
+        'mobile_number',
         'email',
         'password',
         'token',
@@ -41,5 +45,25 @@ class User extends Authenticatable
     public function address()
     {
         return $this->hasMany('App\ModelAdapters\UserAddressAdapter', 'user_id');
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = StringUtil::capitalize($value);
+    }
+
+    public function setPaternalLastNameAttribute($value)
+    {
+        $this->attributes['paternal_last_name'] = StringUtil::capitalize($value);
+    }
+
+    public function setMaternalLastNameAttribute($value)
+    {
+        $this->attributes['maternal_last_name'] = StringUtil::capitalize($value);
+    }
+
+    public function setMobileNumberAttribute($value)
+    {
+        $this->attributes['mobile_number'] = StringUtil::cleanPhone($value);
     }
 }

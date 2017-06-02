@@ -20,6 +20,6 @@ Route::post('/', 'HomeController@register')->name('front.home.register');
 
 Route::group(['middleware' => 'auth'], function(){
     Route::post('/aplicar/store/{slug}', 'ApplicationController@store')->name('front.application.store');
-    Route::get('/aplicar/seccion/{slug?}', 'ApplicationController@seccion')->name('front.application.seccion');
+    Route::get('/aplicar/seccion/{slug?}/{hasError?}/{message?}', 'ApplicationController@seccion')->name('front.application.seccion');
     Route::get('/aplicar/completa', 'ApplicationController@completa')->name('front.application.completa');
 });

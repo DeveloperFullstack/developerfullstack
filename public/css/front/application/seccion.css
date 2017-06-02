@@ -3536,7 +3536,6 @@ h6.normalize-text h1, h6.normalize-text h2, h6.normalize-text h3, h6.normalize-t
 
 .section-footer {
   padding: 3.5rem 0;
-  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -8439,6 +8438,89 @@ ul.grid-list.row, ul.grid-list.ebm-row {
 
 .icon-ellipsis:before {
   content: "\e9e9";
+}
+
+.ebm-alert {
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  border: 2px solid #f7f7f9;
+  background-color: white;
+  margin-bottom: 21px;
+  margin-bottom: 1.3125rem;
+  position: relative;
+}
+
+.ebm-alert h1, .ebm-alert h2, .ebm-alert h3, .ebm-alert h4, .ebm-alert h5, .ebm-alert h6,
+.ebm-alert .h1, .ebm-alert .h2, .ebm-alert .h3, .ebm-alert .h4, .ebm-alert .h5, .ebm-alert .h6,
+.ebm-alert h1, .ebm-alert h2, .ebm-alert h3, .ebm-alert h4, .ebm-alert h5, .ebm-alert h6, .ebm-alert p, .ebm-alert span, .ebm-alert a, .ebm-alert em, .ebm-alert i, .ebm-alert strong, .ebm-alert li {
+  margin: 0;
+}
+
+.ebm-alert .alert-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  border-right: 1px solid #f7f7f9;
+  height: 100%;
+  width: 70px;
+}
+
+.ebm-alert .alert-left i {
+  font-size: 1.75rem;
+}
+
+.ebm-alert .alert-right {
+  padding-left: 70px;
+}
+
+.ebm-alert .alert-header {
+  border-bottom: 1px solid #f7f7f9;
+}
+
+.ebm-alert .alert-header,
+.ebm-alert .alert-content,
+.ebm-alert .alert-footer {
+  padding: 15px;
+}
+
+.ebm-alert.ebm-alert-info {
+  border-color: #5a65db;
+}
+
+.ebm-alert.ebm-alert-info .alert-left {
+  border-color: #5a65db;
+}
+
+.ebm-alert.ebm-alert-danger {
+  border-color: #d9534f;
+}
+
+.ebm-alert.ebm-alert-danger .alert-left {
+  border-color: #d9534f;
+}
+
+.ebm-alert.ebm-alert-warning {
+  border-color: #f0ad4e;
+}
+
+.ebm-alert.ebm-alert-warning .alert-left {
+  border-color: #f0ad4e;
+}
+
+.ebm-alert.ebm-alert-success {
+  border-color: #5cb85c;
+}
+
+.ebm-alert.ebm-alert-success .alert-left {
+  border-color: #5cb85c;
 }
 
 /*

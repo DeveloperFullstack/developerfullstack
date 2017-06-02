@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Utils\StringUtil;
 
 class UserAddress extends Model
 {
@@ -26,29 +27,21 @@ class UserAddress extends Model
 
     public function setCityAttribute($value)
     {
-        $val = strtolower($value);
-        $val = ucwords($val);
-        $this->attributes['city'] = ucfirst($val);
+        $this->attributes['city'] = StringUtil::capitalize($value);
     }
 
     public function setStreetAttribute($value)
     {
-        $val = strtolower($value);
-        $val = ucwords($val);
-        $this->attributes['street'] = ucfirst($val);
+        $this->attributes['street'] = StringUtil::capitalize($value);
     }
 
     public function setInteriorAttribute($value)
     {
-        $val = strtolower($value);
-        $val = ucwords($val);
-        $this->attributes['interior'] = ucfirst($val);
+        $this->attributes['interior'] = StringUtil::capitalize($value);
     }
 
     public function setNeighborhoodAttribute($value)
     {
-        $val = strtolower($value);
-        $val = ucwords($val);
-        $this->attributes['neighborhood'] = ucfirst($val);
+        $this->attributes['neighborhood'] = StringUtil::capitalize($value);
     }
 }

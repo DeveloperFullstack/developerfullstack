@@ -3536,7 +3536,6 @@ h6.normalize-text h1, h6.normalize-text h2, h6.normalize-text h3, h6.normalize-t
 
 .section-footer {
   padding: 3.5rem 0;
-  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {

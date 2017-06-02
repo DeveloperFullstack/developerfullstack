@@ -3,6 +3,8 @@
 namespace App\Field;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Exceptions\FieldException;
+use Illuminate\Support\Facades\Log;
 
 class Field
 {
@@ -13,7 +15,7 @@ class Field
     private $options = [];
     private $alias = null;
     private $hint = null;
-    private $placeholder = null;
+    private $placeholder = '';
     private $required = false;
     private $class = 'form-control form-control-lg';
 
@@ -183,14 +185,14 @@ class Field
         $model = $this->getModel();
 
         if (!$model) {
-            error_log('No field model specified');
+            Log::alert('No field model specified');
             throw new FieldException('No hemos podido guardar tus datos');
         }
 
         $column = $this->getName();
 
         if (!$column) {
-            error_log('No field column specified');
+            Log::alert('No field column specified');
             throw new FieldException('No hemos podido guardar tus datos');
         }
 
@@ -201,29 +203,3 @@ class Field
         return $this;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
