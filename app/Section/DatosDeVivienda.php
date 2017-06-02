@@ -92,8 +92,8 @@ class DatosDeVivienda extends AbstractBaseSection
     {
         return [
             'zip_code' => 'required|string|size:5|regex:/\d/',
-            'country_id' => 'required|numeric|max:1',
-            'state_id' => 'required|numeric|max:2',
+            'country_id' => 'required|numeric',
+            'state_id' => 'required|numeric',
             'city' => 'required|string|max:60',
             'street' => 'required|string|max:60',
             'interior' => 'required|string|max:60',
