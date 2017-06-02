@@ -46,7 +46,7 @@ class InformacionPersonal extends AbstractBaseSection
     {
         return [
             'dob' => 'required|date',
-            'gender_id.key.*' => 'required|date'
+            'gender_id' => 'required|regex:/^[1,2]/i'
         ];
     }
 
