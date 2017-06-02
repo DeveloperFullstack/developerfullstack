@@ -5,6 +5,7 @@ namespace App\ModelAdapters;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\ModelAdapters\StudentAdapter as Student;
+use App\ModelAdapters\UserAddressAdapter as UserAddress;
 
 class UserAdapter extends User
 {
@@ -25,9 +26,23 @@ class UserAdapter extends User
         $this->token = null;
         $this->save();
 
+        return $this;
+    }
+
+    public function enroll()
+    {
         Student::create([
             'user_id' => $this->id,
             'program_version' => Student::CURRENT_PROGRAM_VERSION
+            ]);
+
+        return $this;
+    }
+
+    public function createEmptyAddress()
+    {
+        UserAddress::create([
+            'user_id' => $this->id
             ]);
 
         return $this;

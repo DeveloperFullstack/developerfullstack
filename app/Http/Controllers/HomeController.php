@@ -163,7 +163,11 @@ class HomeController extends Controller
     public function welcome(String $token)
     {
         try {
-            $user = User::where('token', $token)->firstOrFail()->confirmEmail();
+            $user = User::where('token', $token)
+                ->firstOrFail()
+                ->confirmEmail()
+                ->enroll()
+                ->createEmptyAddress();
         } catch (\Exception $e) {
             return abort(404);
         }

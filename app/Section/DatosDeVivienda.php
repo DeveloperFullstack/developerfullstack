@@ -22,6 +22,8 @@ class DatosDeVivienda extends AbstractBaseSection
 
     public function setFields()
     {
+        $user = $this->user;
+
         $this->addField('dob')
             ->setLabel('Fecha de nacimiento')
             ->setType(Field::TYPE_DATE)
