@@ -8364,7 +8364,31 @@ ul.grid-list.row, ul.grid-list.ebm-row {
 }
 
 /*
-	Hero unit
+  EBM Global styles
+*/
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.site-wrapper,
+.site-content {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.cta-nav {
+  margin-top: 1rem;
+}
+
+.cta-nav a {
+  margin-right: 3rem;
+}
+
+/*
+  Media queries
+*/
+/*
+  Hero unit
 */
 .StripeBackground {
   transform: skewY(-12deg);
@@ -8473,30 +8497,6 @@ ul.grid-list.row, ul.grid-list.ebm-row {
   background: #6772e5;
 }
 
-/*
-  EBM Global styles
-*/
-html::-webkit-scrollbar {
-  display: none;
-}
-
-.site-wrapper,
-.site-content {
-  overflow-x: hidden;
-  position: relative;
-}
-
-.cta-nav {
-  margin-top: 1rem;
-}
-
-.cta-nav a {
-  margin-right: 3rem;
-}
-
-/*
-  Media queries
-*/
 .header {
   position: absolute;
   top: 0;
@@ -8699,7 +8699,6 @@ html::-webkit-scrollbar {
   position: absolute;
   height: 100%;
   width: 100%;
-  top: -130px;
   z-index: 11;
 }
 
@@ -8882,7 +8881,7 @@ html::-webkit-scrollbar {
   flex-direction: column;
   display: -ms-flexbox;
   display: flex;
-  min-height: 63vh;
+  min-height: 81vh;
   color: white;
 }
 
@@ -8994,7 +8993,7 @@ html::-webkit-scrollbar {
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1500px) {
   body .computer-bg-wrapper {
     height: 1110px;
   }

@@ -31,9 +31,9 @@
 @import "./node_modules/ebm/elements/ebm-buttons";
 @import "./node_modules/ebm/elements/ebm-icons";
 @import "./node_modules/ebm/elements/ebm-grid-lists";
-@import "./node_modules/ebm/modules/ebm-hero-unit";
 @import "./resources/sass/ebm-overrides";
 @import "./resources/sass/ebm-global";
+@import "./resources/sass/common/hero-stripes";
 
 .header {
   @include position(absolute, 0 0 null 0);
@@ -183,7 +183,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    top: -130px;
+    // top: -130px;
     z-index: 11;
   }
   .stripe {
@@ -350,7 +350,7 @@ $logos-height-control: 840px;
   .section-content {
     .container {
       @include flex-column-center;
-      min-height: 63vh;
+      min-height: 81vh;
       color: white;
     }
     h5 {
@@ -382,8 +382,6 @@ $logos-height-control: 840px;
 /*
   Media queries
 */
-$xl-desktop: 1500px;
-$xxl-desktop: 1980px;
 @media #{$xs-only} {}
 @media #{$sm-only} {}
 @media #{$md-only} {}
@@ -485,7 +483,7 @@ $xxl-desktop: 1980px;
     }
   }
 }
-@media #{$lg-up} {
+@media #{$xl-up} {
   body {
     .computer-bg-wrapper {
       height: 1110px;
