@@ -2,51 +2,46 @@
 
 namespace App\Section;
 
-use App\Field\Field;
+use EBM\{
+    Field\Field
+};
+
 use App\LuGender;
 use App\Utils\RegexUtil;
 
-class InformacionPersonal extends AbstractBaseSection
+class InformacionPersonal extends AbstractApplicationSection
 {
-    public function setSlug()
-    {
-        $this->slug = 'informacion-personal';
-
-        return $this;
-    }
-
-    public function setOnPostActionString()
-    {
-        $this->onPostActionString = route('front.application.store', ['slug' => $this->getSlug()]);
-
-        return $this;
-    }
+    protected $slug = 'informacion-personal';
 
     public function setFields()
     {
+        $user = $this->getUIApplication()->getInstance('user');
+
+        $userInfo = $user->info()->first();
+
         $this->addField('name')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setLabel('Nombre')
             ->setType(Field::TYPE_TEXT)
             ->required()
             ->setValueFromDb();
 
         $this->addField('paternal_last_name')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setLabel('Apellido paterno')
             ->setType(Field::TYPE_TEXT)
             ->required()
             ->setValueFromDb();
 
         $this->addField('maternal_last_name')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setLabel('Apellido materno')
             ->setType(Field::TYPE_TEXT)
             ->required()
             ->setValueFromDb();
 
         $this->addField('mobile_number')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setLabel('Teléfono celular')
             ->setType(Field::TYPE_TEXT)
             ->required()
@@ -54,7 +49,7 @@ class InformacionPersonal extends AbstractBaseSection
             ->setValueFromDb();
 
         $this->addField('dob')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setLabel('Fecha de nacimiento')
             ->setType(Field::TYPE_DATE)
             ->required()
@@ -62,7 +57,7 @@ class InformacionPersonal extends AbstractBaseSection
             ->setValueFromDb();
 
         $this->addField('gender_id')
-            ->setModel($this->user)
+            ->setModel($userInfo)
             ->setOptions(LuGender::OPTIONS)
             ->setLabel('Género')
             ->setType(Field::TYPE_RADIO)
@@ -90,7 +85,7 @@ class InformacionPersonal extends AbstractBaseSection
     {
         return [
             'dob.date' => 'El campo debe ser una fecha válida',
-            'mobile_number.regex' => 'El teléfono debe contener código de país y 10 dígitos para el número',
+            'mobile_number.regex' => 'El teléfono debe contener código de país y 8 dígitos para el número',
         ];
     }
 }

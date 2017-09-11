@@ -2,32 +2,25 @@
 
 namespace App\Section;
 
-use App\Field\Field;
+use EBM\{
+    Field\Field
+};
+
 use App\ModelAdapters\UserAddressAdapter as UserAddress;
 use App\ModelAdapters\StudentAdapter as Student;
 use App\ModelAdapters\LuAddressStatesAdapter as LuAddressStates;
 use App\ModelAdapters\LuAddressCountriesAdapter as LuAddressCountries;
 
-class DatosDeVivienda extends AbstractBaseSection
+class DatosDeVivienda extends AbstractApplicationSection
 {
-    public function setSlug()
-    {
-        $this->slug = 'datos-de-vivienda';
-
-        return $this;
-    }
-
-    public function setOnPostActionString()
-    {
-        $this->onPostActionString = route('front.application.store', ['slug' => $this->getSlug()]);
-
-        return $this;
-    }
+    protected $slug = 'datos-de-vivienda';
 
     public function setFields()
     {
-        $user = $this->user;
+        $user = $this->getUIApplication()->getInstance('user');
+
         $student = $user->student()->where('program_version', Student::CURRENT_PROGRAM_VERSION)->first();
+
         $address = UserAddress::where('user_id', $student->user_id)->first();
 
         $this->addField('zip_code')

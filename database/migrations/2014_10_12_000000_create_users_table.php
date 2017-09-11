@@ -17,11 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('name')->nullable();
-            $table->string('paternal_last_name')->nullable();
-            $table->string('maternal_last_name')->nullable();
-            $table->string('mobile_number', 14)->nullable();
-            $table->integer('gender_id')->length(1)->unsigned()->nullable();
-            $table->date('dob')->nullable();
             $table->string('password')->nullable();
             $table->string('token', 30)->nullable();
             $table->integer('is_verified')->length(1)->default(0);

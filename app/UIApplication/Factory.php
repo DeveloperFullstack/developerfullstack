@@ -2,8 +2,10 @@
 
 namespace App\UIApplication;
 
-use App\ModelAdapters\UserAdapter as User;
-use App\ModelAdapters\StudentAdapter as Student;
+use App\ModelAdapters\{
+    UserAdapter as User,
+    StudentAdapter as Student
+};
 
 class Factory
 {

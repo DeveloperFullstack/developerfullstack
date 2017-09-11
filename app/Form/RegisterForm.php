@@ -2,7 +2,8 @@
 
 namespace App\Form;
 
-use App\Field\Field;
+use EBM\Field\Field;
+use EBM\Form\AbstractBaseForm;
 
 class RegisterForm extends AbstractBaseForm
 {

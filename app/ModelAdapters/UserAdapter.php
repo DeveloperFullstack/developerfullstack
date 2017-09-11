@@ -4,8 +4,12 @@ namespace App\ModelAdapters;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use App\ModelAdapters\StudentAdapter as Student;
-use App\ModelAdapters\UserAddressAdapter as UserAddress;
+
+use App\ModelAdapters\{
+    StudentAdapter as Student,
+    UserAddressAdapter as UserAddress,
+    UserInfoAdapter as UserInfo
+};
 
 class UserAdapter extends User
 {
@@ -42,6 +46,15 @@ class UserAdapter extends User
     public function createEmptyAddress()
     {
         UserAddress::create([
+            'user_id' => $this->id
+            ]);
+
+        return $this;
+    }
+
+    public function createUserInfo()
+    {
+        UserInfo::create([
             'user_id' => $this->id
             ]);
 

@@ -167,7 +167,8 @@ class HomeController extends Controller
                 ->firstOrFail()
                 ->confirmEmail()
                 ->enroll()
-                ->createEmptyAddress();
+                ->createEmptyAddress()
+                ->createUserInfo();
         } catch (\Exception $e) {
             return abort(404);
         }

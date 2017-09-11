@@ -18,10 +18,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'paternal_last_name',
-        'maternal_last_name',
-        'mobile_number',
         'email',
         'password',
         'token',
@@ -39,12 +35,17 @@ class User extends Authenticatable
 
     public function student()
     {
-        return $this->hasMany('App\ModelAdapters\StudentAdapter', 'user_id');
+        return $this->hasMany(\App\ModelAdapters\StudentAdapter::class, 'user_id');
     }
 
     public function address()
     {
-        return $this->hasMany('App\ModelAdapters\UserAddressAdapter', 'user_id');
+        return $this->hasMany(\App\ModelAdapters\UserAddressAdapter::class, 'user_id');
+    }
+
+    public function info()
+    {
+        return $this->hasMany(\App\ModelAdapters\UserInfoAdapter::class, 'user_id');
     }
 
     public function setNameAttribute($value)

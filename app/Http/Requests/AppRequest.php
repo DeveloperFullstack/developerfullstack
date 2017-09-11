@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Http\Request as BaseRequest;
-use App\UIApplication\AbstractUIApplication;
+use EBM\UIApplication\AbstractUIApplication;
 use Auth;
 use App\UIApplication\Factory as UIApplicationFactory;
 use App\ModelAdapters\UserAdapter as User;
